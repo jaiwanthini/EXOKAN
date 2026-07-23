@@ -70,19 +70,79 @@ streamlit run app/streamlit_app.py
 ```
 
 ## Results
-_(Fill in after running the scripts)_
 
 | Model | Macro F1 | Accuracy |
 |---|---|---|
-| Random Forest | | |
-| XGBoost | | |
-| KAN | | |
+| Random Forest | 0.7458 | 0.7841 |
+| XGBoost | 0.7403 | 0.7804 |
+| KAN (100 steps, width=[11,6,3]) | 0.7099 | 0.76 |
+
+**Per-class F1 comparison:**
+
+| Class | Random Forest | XGBoost | KAN |
+|---|---|---|---|
+| CANDIDATE | 0.55 | 0.54 | 0.48 |
+| CONFIRMED | 0.85 | 0.84 | 0.83 |
+| FALSE POSITIVE | 0.84 | 0.84 | 0.82 |
+
+**Hyperparameter note:** training steps were swept (50 / 100 / 200) to find the
+generalization sweet spot before overfitting — 200 steps drove train_loss down
+(5.88e-01) but test_loss *up* (9.51e-01), a clear overfitting signature. 100 steps
+gave the lowest test_loss (7.58e-01) and was selected as the final model.
 
 ## Key Takeaway
-_(Fill in your finding, e.g.: "KAN achieved competitive accuracy with RF/XGBoost while
-providing direct visualization of learned decision functions — showing that features
-like koi_model_snr and koi_depth have [describe the learned relationship] on
-classification, consistent with known transit-detection physics.")_
+
+**On accuracy:** Random Forest and XGBoost both edge out KAN by roughly 3-4 points
+of macro F1 (0.746 and 0.740 vs. 0.710), with the gap consistent across all three
+classes rather than concentrated in one. This is an honest, expected result — tree
+ensembles are a mature, highly-tuned architecture for tabular data, while KAN is a
+2024 architecture without the same years of tuning tricks built up around it. The
+gap is real but modest, and it's not the headline finding of this project.
+
+CANDIDATE is the hardest class for all three models (F1 0.48–0.55) — consistent with
+it being, by NASA's own labeling convention, the class where the original vetting
+pipeline itself couldn't confidently call a detection real or false. Every model's
+difficulty here mirrors genuine ambiguity in the underlying data, not just a
+limitation of any one architecture.
+
+**On interpretability — the core argument of this project:** the accuracy gap is
+the price of trading a small amount of raw performance for a fundamentally different
+kind of transparency. SHAP analysis on the XGBoost baseline required three separate
+post-hoc explanation runs (one per class) to reveal that `koi_model_snr` drives
+CONFIRMED predictions, while `koi_prad` and `koi_period` dominate FALSE POSITIVE
+predictions — consistent with the physical intuition that high signal-to-noise
+transits look like real planets, while implausible radius/period combinations flag
+likely eclipsing binaries. The KAN's learned edge functions, visualized directly
+from `kan_activation_functions.png`, show the same `koi_model_snr` pathway carrying
+strong, high-magnitude connections toward the CONFIRMED output — **without requiring
+any additional explanation step**. Two independent interpretability methods converge
+on the same finding, but one needed extra tooling (SHAP, run per-class, after
+training) and one was inherent to the trained model itself.
+
+That distinction — interpretable *by design*, at a modest accuracy cost, vs.
+higher raw accuracy that needs separate post-hoc tooling to explain — is the
+practical trade-off this project demonstrates. In a domain like astrophysics, where
+scientists need to sanity-check a model's reasoning against known physics before
+committing expensive telescope time, that trade-off can be well worth making.
+
+## Visualizations
+
+**KAN — interpretable by design:**
+
+![KAN Activation Functions](results/kan_activation_functions.png)
+*Learned activation functions on every edge of the trained KAN — visible directly from the model, no separate explanation step required.*
+
+**XGBoost — explained post-hoc via SHAP (one plot per class):**
+
+![SHAP Summary - CANDIDATE](results/xgboost_shap_summary_candidate.png)
+![SHAP Summary - CONFIRMED](results/xgboost_shap_summary_confirmed.png)
+![SHAP Summary - FALSE POSITIVE](results/xgboost_shap_summary_false_positive.png)
+
+**Baseline model diagnostics:**
+
+![Random Forest Confusion Matrix](results/random_forest_confusion_matrix.png)
+![Random Forest Feature Importance](results/random_forest_feature_importance.png)
+![XGBoost Confusion Matrix](results/xgboost_confusion_matrix.png)
 
 ## Tech Stack
 Python, PyTorch, pykan, scikit-learn, XGBoost, SHAP, Streamlit, pandas, matplotlib

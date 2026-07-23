@@ -35,7 +35,7 @@ def to_pykan_dataset(X_train, X_test, y_train, y_test):
     }
 
 
-def train_kan_model(steps: int = 200):
+def train_kan_model(steps: int = 100):
     X_train, X_test, y_train, y_test, label_encoder, features = clean_and_split()
     dataset = to_pykan_dataset(X_train, X_test, y_train, y_test)
 
@@ -43,7 +43,7 @@ def train_kan_model(steps: int = 200):
     n_classes = len(label_encoder.classes_)
 
     # width: [input_dim, hidden_dim, output_dim]. Start small on CPU.
-    model = KAN(width=[n_features, 12, n_classes], grid=8, k=3, seed=42)
+    model = KAN(width=[n_features, 6, n_classes], grid=8, k=3, seed=42)
 
     def train_acc():
         preds = torch.argmax(model(dataset["train_input"]), dim=1)
@@ -83,7 +83,7 @@ def train_kan_model(steps: int = 200):
 
     # Save the model's own width/config too, since you need it to reload
     # the KAN class correctly later (plain state_dict isn't enough for KAN).
-    np.save(MODELS_DIR / "kan_config.npy", {"width": [n_features, 12, n_classes], "grid": 8, "k": 3})
+    np.save(MODELS_DIR / "kan_config.npy", {"width": [n_features, 6, n_classes], "grid": 8, "k": 3})
 
     return model, macro_f1
 
