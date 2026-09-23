@@ -1,0 +1,24 @@
+MULTIPLE RANDOM SEEDS (Exploratory held-out test evaluation)
+Seeds: [42, 7, 21, 100, 123]
+
+=== Random Forest ===
+Accuracy: 0.7705 ± 0.0106
+Macro F1: 0.7291 ± 0.0110
+Candidate F1: 0.5310 ± 0.0158
+Confirmed F1: 0.8295 ± 0.0140
+False Positive F1: 0.8268 ± 0.0097
+
+=== XGBoost ===
+Accuracy: 0.7816 ± 0.0048
+Macro F1: 0.7393 ± 0.0046
+Candidate F1: 0.5416 ± 0.0079
+Confirmed F1: 0.8363 ± 0.0056
+False Positive F1: 0.8402 ± 0.0048
+
+=== KAN ===
+Accuracy: 0.7632 ± 0.0084
+Macro F1: 0.7176 ± 0.0107
+Candidate F1: 0.5019 ± 0.0205
+Confirmed F1: 0.8256 ± 0.0132
+False Positive F1: 0.8253 ± 0.0093
+

@@ -1,0 +1,68 @@
+CONTROLLED KAN TRAINING STEPS EXPERIMENT
+======================================================================
+
+=== KAN_100 ===
+Architecture: [[11, 0], [6, 0], [3, 0]]
+Grid: 8
+K: 3
+Steps: 100
+Seed: 42
+Accuracy: 0.7684
+Macro F1: 0.7206
+
+                precision    recall  f1-score   support
+
+     CANDIDATE     0.5799    0.4672    0.5175       396
+     CONFIRMED     0.8114    0.8069    0.8091       549
+FALSE POSITIVE     0.8034    0.8698    0.8353       968
+
+      accuracy                         0.7684      1913
+     macro avg     0.7316    0.7146    0.7206      1913
+  weighted avg     0.7594    0.7684    0.7620      1913
+
+
+============================================================
+
+=== KAN_250 ===
+Architecture: [[11, 0], [6, 0], [3, 0]]
+Grid: 8
+K: 3
+Steps: 250
+Seed: 42
+Accuracy: 0.7627
+Macro F1: 0.7194
+
+                precision    recall  f1-score   support
+
+     CANDIDATE     0.5689    0.4798    0.5205       396
+     CONFIRMED     0.8060    0.8251    0.8155       549
+FALSE POSITIVE     0.8024    0.8430    0.8222       968
+
+      accuracy                         0.7627      1913
+     macro avg     0.7258    0.7160    0.7194      1913
+  weighted avg     0.7551    0.7627    0.7578      1913
+
+
+============================================================
+
+=== KAN_500 ===
+Architecture: [[11, 0], [6, 0], [3, 0]]
+Grid: 8
+K: 3
+Steps: 500
+Seed: 42
+Accuracy: 0.7585
+Macro F1: 0.7107
+
+                precision    recall  f1-score   support
+
+     CANDIDATE     0.5438    0.4545    0.4952       396
+     CONFIRMED     0.8124    0.8124    0.8124       549
+FALSE POSITIVE     0.7986    0.8523    0.8246       968
+
+      accuracy                         0.7585      1913
+     macro avg     0.7183    0.7064    0.7107      1913
+  weighted avg     0.7498    0.7585    0.7529      1913
+
+
+============================================================

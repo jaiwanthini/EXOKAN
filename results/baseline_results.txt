@@ -13,12 +13,12 @@ FALSE POSITIVE       0.83      0.85      0.84       968
 
 
 === XGBoost ===
-Accuracy: 0.7804
-Macro F1: 0.7403
+Accuracy: 0.7831
+Macro F1: 0.7419
                 precision    recall  f1-score   support
 
-     CANDIDATE       0.57      0.52      0.54       396
-     CONFIRMED       0.82      0.86      0.84       549
+     CANDIDATE       0.57      0.51      0.54       396
+     CONFIRMED       0.83      0.86      0.84       549
 FALSE POSITIVE       0.83      0.85      0.84       968
 
       accuracy                           0.78      1913

@@ -1,0 +1,15 @@
+Standardized Mean Differences (Cohen's d) [CANDIDATE vs FALSE POSITIVE]:
+koi_model_snr: 0.9619
+koi_prad: 0.8419
+koi_depth: 0.7119
+koi_insol: 0.6264
+koi_teq: 0.5986
+koi_period: 0.5221
+transit_depth_duration_ratio: 0.5016
+koi_steff: 0.2278
+koi_duration: 0.1810
+snr_depth_ratio: 0.1719
+teq_insol_ratio: 0.1458
+koi_srad: 0.1159
+koi_slogg: 0.1056
+koi_impact: 0.0763

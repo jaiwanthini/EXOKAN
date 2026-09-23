@@ -1,0 +1,19 @@
+=== FINAL PRESENTATION TABLE ===
+
+Metric                    Current         Optimized      
+-------------------------------------------------------
+Candidate F1              0.5300          0.5379         
+Confirmed F1              0.8500          0.8525         
+False Positive F1         0.8500          0.8486         
+Macro F1                  0.7400          0.7464         
+Accuracy                  78.72          % 79.09          %
+
+BEFORE Confusion Matrix:
+[[189  61 146]
+ [ 47 480  22]
+ [ 86  45 837]]
+
+AFTER Confusion Matrix (Ensemble):
+[[195  52 149]
+ [ 48 477  24]
+ [ 86  41 841]]

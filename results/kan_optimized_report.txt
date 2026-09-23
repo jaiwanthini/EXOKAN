@@ -1,0 +1,28 @@
+Optimized KAN Configuration:
+{
+  "hidden": [
+    6
+  ],
+  "grid": 3,
+  "k": 3,
+  "steps": 50,
+  "lr": 1.0
+}
+
+Test Accuracy: 0.7872
+Test Macro F1: 0.7402
+
+                precision    recall  f1-score   support
+
+     CANDIDATE       0.59      0.48      0.53       396
+     CONFIRMED       0.82      0.87      0.85       549
+FALSE POSITIVE       0.83      0.86      0.85       968
+
+      accuracy                           0.79      1913
+     macro avg       0.75      0.74      0.74      1913
+  weighted avg       0.78      0.79      0.78      1913
+
+Confusion Matrix:
+[[189  61 146]
+ [ 47 480  22]
+ [ 86  45 837]]

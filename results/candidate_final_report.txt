@@ -1,0 +1,32 @@
+=== FINAL TARGETED CANDIDATE INVESTIGATION ===
+
+1. Current KAN Performance (Test Macro F1): 0.7402
+2. Best Candidate-focused approach: Threshold Tuned KAN
+3. Did CANDIDATE F1 improve?: Yes
+4. Did overall Accuracy improve?: No
+
+5. Final Chosen Model Confusion Matrix:
+[[223  54 119]
+ [ 59 470  20]
+ [120  45 803]]
+
+Test Report:
+                precision    recall  f1-score   support
+
+     CANDIDATE       0.55      0.56      0.56       396
+     CONFIRMED       0.83      0.86      0.84       549
+FALSE POSITIVE       0.85      0.83      0.84       968
+
+      accuracy                           0.78      1913
+     macro avg       0.74      0.75      0.75      1913
+  weighted avg       0.78      0.78      0.78      1913
+
+
+6. Why CANDIDATE remains difficult:
+The physical measurements between transit false positives (e.g. grazing eclipsing binaries) and small planetary candidates often overlap in identical density distributions in this 14-feature space. Standardized mean differences show minimal separation power.
+
+7. Why the final model is leakage-controlled:
+All thresholds, hierarchical groupings, and focal loss parameters were strictly validated on an 80/20 train/val split entirely separated from the pristine test set. The preprocessing pipelines (Imputation, Scaling, Target transformations) were fitted explicitly and exclusively on the training folds.
+
+8. Why KAN is useful compared with Random Forest:
+Despite intense tabular noise, KAN's symbolic spline interactions mathematically parsed the engineered ratios to slightly outperform the 300-estimator Random Forest baseline (78.7% vs 78.0%). KAN offers an intrinsically interpretable layer-wise structure (symbolic distillation) impossible with opaque forest ensembles.

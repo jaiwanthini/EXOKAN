@@ -1,0 +1,90 @@
+CONTROLLED KAN ARCHITECTURE EXPERIMENT
+======================================================================
+
+=== KAN_A ===
+Architecture: [[11, 0], [6, 0], [3, 0]]
+Grid: 8
+K: 3
+Steps: 100
+Seed: 42
+Accuracy: 0.7684
+Macro F1: 0.7206
+
+                precision    recall  f1-score   support
+
+     CANDIDATE     0.5799    0.4672    0.5175       396
+     CONFIRMED     0.8114    0.8069    0.8091       549
+FALSE POSITIVE     0.8034    0.8698    0.8353       968
+
+      accuracy                         0.7684      1913
+     macro avg     0.7316    0.7146    0.7206      1913
+  weighted avg     0.7594    0.7684    0.7620      1913
+
+
+============================================================
+
+=== KAN_B ===
+Architecture: [[11, 0], [8, 0], [3, 0]]
+Grid: 8
+K: 3
+Steps: 100
+Seed: 42
+Accuracy: 0.7564
+Macro F1: 0.7133
+
+                precision    recall  f1-score   support
+
+     CANDIDATE     0.5307    0.4798    0.5040       396
+     CONFIRMED     0.8028    0.8306    0.8165       549
+FALSE POSITIVE     0.8116    0.8275    0.8194       968
+
+      accuracy                         0.7564      1913
+     macro avg     0.7150    0.7126    0.7133      1913
+  weighted avg     0.7509    0.7564    0.7533      1913
+
+
+============================================================
+
+=== KAN_C ===
+Architecture: [[11, 0], [10, 0], [3, 0]]
+Grid: 8
+K: 3
+Steps: 100
+Seed: 42
+Accuracy: 0.7271
+Macro F1: 0.6783
+
+                precision    recall  f1-score   support
+
+     CANDIDATE     0.4970    0.4242    0.4578       396
+     CONFIRMED     0.7786    0.7814    0.7800       549
+FALSE POSITIVE     0.7754    0.8202    0.7972       968
+
+      accuracy                         0.7271      1913
+     macro avg     0.6837    0.6753    0.6783      1913
+  weighted avg     0.7187    0.7271    0.7220      1913
+
+
+============================================================
+
+=== KAN_D ===
+Architecture: [[11, 0], [10, 0], [5, 0], [3, 0]]
+Grid: 8
+K: 3
+Steps: 100
+Seed: 42
+Accuracy: 0.7256
+Macro F1: 0.6859
+
+                precision    recall  f1-score   support
+
+     CANDIDATE     0.4755    0.4899    0.4826       396
+     CONFIRMED     0.8027    0.7559    0.7786       549
+FALSE POSITIVE     0.7885    0.8048    0.7965       968
+
+      accuracy                         0.7256      1913
+     macro avg     0.6889    0.6835    0.6859      1913
+  weighted avg     0.7278    0.7256    0.7264      1913
+
+
+============================================================

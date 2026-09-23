@@ -9,4 +9,9 @@ matplotlib
 seaborn
 streamlit
 joblib
-jupyter
+PyYAML
+fpdf2
+plotly
+google-genai
+
+

@@ -7,3 +7,5 @@ models/*.joblib
 models/*.pt
 models/*.npy
 .DS_Store
+.streamlit/secrets.toml
+
